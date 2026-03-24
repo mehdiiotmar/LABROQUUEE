@@ -1,4 +1,6 @@
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>SNACK LABROQUE OUJDA</title>
 
-    <!-- Balise Google Search Console -->
+    <!-- Balise Google Search Console ajoutée -->
     <meta name="google-site-verification" content="--82mY2Q569zlSf9I4Go4sS-wInaImK6NUHFeZid5E8" />
-</head>
+  </head>
+  <body>
+    <!-- Important: root id must match main.tsx -->
+    <div id="root"></div>
+
+    <!-- Point to main.tsx instead of main.ts -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
