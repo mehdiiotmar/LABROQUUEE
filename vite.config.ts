@@ -1,10 +1,7 @@
-// vite.config.ts
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'  // ou ton plugin actuel
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist',  // indispensable pour Netlify
-  },
+  base: './'   // 🔥 TRÈS IMPORTANT
 })
