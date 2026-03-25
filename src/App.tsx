@@ -14,8 +14,17 @@ import StructuredData from './components/StructuredData';
 function App() {
   return (
     <div className="min-h-screen bg-animated-gradient">
-      {/* SEO JSON-LD */}
+      
+      {/* ✅ SEO JSON-LD */}
       <StructuredData />
+
+      {/* ✅ SEO TEXTE INVISIBLE POUR GOOGLE */}
+      <div className="hidden">
+        Snack Labroque Oujda, snack Hay Lqods, tacos Oujda, pizza Oujda, burger Oujda,
+        snack près de la fac Oujda, fast food Oujda, snack rapide Oujda,
+        commande tacos Oujda, pizza à emporter Oujda, tacos à emporter Oujda,
+        snack étudiant Oujda, snack pas cher Oujda, livraison snack Oujda
+      </div>
 
       {/* Accessibilité */}
       <a
