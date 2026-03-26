@@ -16,7 +16,10 @@ export interface Promotion {
 }
 
 export interface Testimonial {
-  name: string;
-  comment: string;
-  rating: number;
+  categorie: string;
+  nomProduit: string;
+  taille: string;
+  prix: string;
+  bestSeller: string;
+  imageUrl?: string;  // 👈 LIGNE AJOUTÉE
 }
