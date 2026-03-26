@@ -48,7 +48,7 @@ export async function fetchMenuItems(): Promise<MenuItem[]> {
     return [];
   }
 }
-}
+
 
 export async function fetchPromotions(): Promise<Promotion[]> {
   try {
