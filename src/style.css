@@ -222,7 +222,7 @@ body {
   padding: 6px 14px;
   background: var(--primary-light);
   border-radius: var(--radius-full);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--primary);
   width: fit-content;
@@ -358,7 +358,7 @@ body {
 }
 
 .social-text {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
 }
 
@@ -570,7 +570,7 @@ body {
 }
 
 .stat-label {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -628,7 +628,7 @@ body {
 }
 
 .footer-column h4 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -657,5 +657,5 @@ body {
 
 .footer-bottom p {
   color: var(--text-tertiary);
-  font-size: 14px;
+  font-size: 12px;
 }
