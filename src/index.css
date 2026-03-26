@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================= BASE ================= */
 @layer base {
   :root {
     --bg-primary: #000000;
@@ -22,12 +23,6 @@
     scroll-behavior: smooth;
     background: #000000;
     color: #ffffff;
-    line-height: 1.6; /* ✅ lisibilité */
-  }
-
-  img {
-    max-width: 100%;
-    display: block; /* ✅ fix images */
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -41,8 +36,8 @@
   }
 }
 
+/* ================= COMPONENTS ================= */
 @layer components {
-
   .btn-primary {
     @apply bg-gradient-to-r from-red-600 to-yellow-400 text-white font-bold transition-all duration-200 hover:shadow-md hover:scale-[1.02] active:scale-95;
   }
@@ -62,25 +57,6 @@
     transform: translateY(-4px);
     border-color: #dc2626;
     box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);
-  }
-
-  /* ✅ FIX IMAGE ANIMATION */
-  .menu-card img {
-    transition: transform 0.3s ease;
-  }
-
-  .menu-card:hover img {
-    transform: scale(1.05);
-  }
-
-  /* ✅ PRICE EFFECT (conversion boost) */
-  .price {
-    transition: 0.2s;
-  }
-
-  .menu-card:hover .price {
-    color: #fbbf24;
-    transform: scale(1.1);
   }
 
   .promo-card {
@@ -144,51 +120,97 @@
   }
 }
 
+/* ================= UTILITIES ================= */
 @layer utilities {
-
   .shadow-glow {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.15), 0 0 30px rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.15),
+                0 0 30px rgba(255, 215, 0, 0.1);
   }
 
   .shadow-card-glow {
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.1), 0 3px 10px rgba(255, 215, 0, 0.08);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.1),
+                0 3px 10px rgba(255, 215, 0, 0.08);
   }
 
   .shadow-promo-glow {
-    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.12), 0 4px 12px rgba(255, 215, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.12),
+                0 4px 12px rgba(255, 215, 0, 0.1);
   }
 
   .drop-shadow-glow {
     filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.3));
   }
 
-  /* ✅ PERFORMANCE: smoother animations */
-  * {
-    will-change: transform;
-  }
-
-  /* keep ALL your animations unchanged 👇 */
-  /* (no deletion to avoid breaking your UI) */
-
+  /* Animations */
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes fade-in-scale {
     from { opacity: 0; transform: scale(0.8) translateY(30px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
   @keyframes slide-in-left {
     from { opacity: 0; transform: translateX(-100px); }
-    to { opacity: 1; transform: translateX(0); }
+    to   { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes slide-in-right {
     from { opacity: 0; transform: translateX(100px); }
-    to { opacity: 1; transform: translateX(0); }
+    to   { opacity: 1; transform: translateX(0); }
   }
 
-  /* (reste inchangé volontairement) */
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    50% { transform: translateY(-5px) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(3deg); }
+  }
+
+  /* (tout le reste identique, juste bien aligné) */
+
+  .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
+  .animate-fade-in-scale { animation: fade-in-scale 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+  .animate-slide-in-left { animation: slide-in-left 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+  .animate-slide-in-right { animation: slide-in-right 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+  .animate-float { animation: float 3s ease-in-out infinite; }
+
+  .bg-animated-gradient {
+    background: linear-gradient(-45deg, #000000, #0a0000, #050505, #0d0000);
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease infinite;
+    position: relative;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ff0000 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
 }
