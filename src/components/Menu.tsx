@@ -77,8 +77,8 @@ export default function Menu() {
               style={{ animationDelay: `${Math.min(index * 0.05, 0.5)}s` }}
             >
               <div className="relative overflow-hidden rounded-t-2xl h-44 md:h-48">
-                <img
-                  src={getProductImage(item.nomProduit)}
+               <img
+                  src={item.imageUrl || getProductImage(item.nomProduit)}  // 👈 LIGNE MODIFIÉE
                   alt={item.nomProduit}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
