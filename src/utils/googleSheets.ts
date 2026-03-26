@@ -36,17 +36,18 @@ export async function fetchMenuItems(): Promise<MenuItem[]> {
     const rows = parseCSV(text);
 
     return rows.slice(1).map(row => ({
-      return rows.slice(1).map(row => ({
       categorie: row[0] || '',
       nomProduit: row[1] || '',
       taille: row[2] || '',
       prix: row[3] || '',
       bestSeller: row[4] || '',
+      imageUrl: row[5] || '',
     })).filter(item => item.nomProduit);
   } catch (error) {
     console.error('Error fetching menu items:', error);
     return [];
   }
+}
 }
 
 export async function fetchPromotions(): Promise<Promotion[]> {
