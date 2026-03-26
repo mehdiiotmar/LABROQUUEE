@@ -15,7 +15,7 @@ export interface Promotion {
   dateFin?: string;
 }
 
-export interface Testimonial {
+export interface MenuItem {
   categorie: string;
   nomProduit: string;
   taille: string;
