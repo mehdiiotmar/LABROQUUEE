@@ -36,6 +36,7 @@ export async function fetchMenuItems(): Promise<MenuItem[]> {
     const rows = parseCSV(text);
 
     return rows.slice(1).map(row => ({
+      return rows.slice(1).map(row => ({
       categorie: row[0] || '',
       nomProduit: row[1] || '',
       taille: row[2] || '',
