@@ -1,216 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>Snack Labroque Oujda | Tacos & Fast Food</title>
+  </head>
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  <body>
+    <!-- React root -->
+    <div id="root"></div>
 
-/* ================= BASE ================= */
-@layer base {
-  :root {
-    --bg-primary: #000000;
-    --bg-secondary: #0a0a0a;
-    --bg-gradient-start: #000000;
-    --bg-gradient-end: #1a0505;
-    --text-primary: #ffffff;
-    --text-secondary: #e5e5e5;
-    --text-muted: #9ca3af;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --card-border: rgba(255, 255, 255, 0.1);
-  }
-
-  body {
-    font-family: 'Poppins', 'Roboto', sans-serif;
-    scroll-behavior: smooth;
-    background: #000000;
-    color: #ffffff;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-}
-
-/* ================= COMPONENTS ================= */
-@layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-red-600 to-yellow-400 text-white font-bold transition-all duration-200 hover:shadow-md hover:scale-[1.02] active:scale-95;
-  }
-
-  .btn-secondary {
-    @apply bg-white text-black transition-all duration-200 hover:bg-yellow-400 hover:scale-[1.02] active:scale-95;
-  }
-
-  .menu-card {
-    @apply rounded-2xl overflow-hidden border transition-all duration-200 hover:shadow-md;
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-  }
-
-  .menu-card:hover {
-    transform: translateY(-4px);
-    border-color: #dc2626;
-    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);
-  }
-
-  .promo-card {
-    @apply relative rounded-3xl border transition-all duration-200 hover:shadow-md;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .promo-card:hover {
-    transform: translateY(-2px);
-    border-color: #fbbf24;
-    box-shadow: 0 12px 50px rgba(251, 191, 36, 0.25);
-  }
-
-  .order-card {
-    @apply rounded-3xl p-6 md:p-8 border shadow-xl;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-  }
-
-  .location-card {
-    @apply rounded-3xl p-6 md:p-8 border transition-all duration-200 hover:shadow-md;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .location-card:hover {
-    border-color: #dc2626;
-    box-shadow: 0 10px 40px rgba(220, 38, 38, 0.3);
-  }
-
-  .testimonial-card {
-    @apply rounded-2xl p-6 md:p-8 border transition-all duration-200 hover:shadow-md;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.2);
-  }
-
-  .social-card {
-    @apply rounded-3xl p-6 md:p-8 border text-center transition-all duration-200 hover:shadow-md;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .social-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.2);
-  }
-
-  .footer-card {
-    @apply transition-colors duration-200;
-  }
-}
-
-/* ================= UTILITIES ================= */
-@layer utilities {
-  .shadow-glow {
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.15),
-                0 0 30px rgba(255, 215, 0, 0.1);
-  }
-
-  .shadow-card-glow {
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.1),
-                0 3px 10px rgba(255, 215, 0, 0.08);
-  }
-
-  .shadow-promo-glow {
-    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.12),
-                0 4px 12px rgba(255, 215, 0, 0.1);
-  }
-
-  .drop-shadow-glow {
-    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.3));
-  }
-
-  /* Animations */
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fade-in-scale {
-    from { opacity: 0; transform: scale(0.8) translateY(30px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-  }
-
-  @keyframes slide-in-left {
-    from { opacity: 0; transform: translateX(-100px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  @keyframes slide-in-right {
-    from { opacity: 0; transform: translateX(100px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
-
-  @keyframes float {
-    0%,100% { transform: translateY(0) rotate(0); }
-    25% { transform: translateY(-10px) rotate(5deg); }
-    50% { transform: translateY(-5px) rotate(-5deg); }
-    75% { transform: translateY(-15px) rotate(3deg); }
-  }
-
-  /* (tout le reste identique, juste bien aligné) */
-
-  .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
-  .animate-fade-in-scale { animation: fade-in-scale 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-  .animate-slide-in-left { animation: slide-in-left 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-  .animate-slide-in-right { animation: slide-in-right 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards; }
-  .animate-float { animation: float 3s ease-in-out infinite; }
-
-  .bg-animated-gradient {
-    background: linear-gradient(-45deg, #000000, #0a0000, #050505, #0d0000);
-    background-size: 400% 400%;
-    animation: gradient-shift 20s ease infinite;
-    position: relative;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #ff0000 0%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  .focus\:not-sr-only:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0.5rem 1rem;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-  }
-}
+    <!-- React entry point -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
