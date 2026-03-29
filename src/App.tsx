@@ -40,9 +40,9 @@ function App() {
 
       <main id="main-content">
         <Hero />
-        <OpeningCountdown />
+        {/* <OpeningCountdown /> */}
         <Menu />
-        <Promotions />
+        {/*<Promotions /> */}
         <Order />
         <Location />
         <SocialProof />
