@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Star, Sparkles } from 'lucide-react';
+import { Star, Sparkles, ShoppingCart } from 'lucide-react';
 import { MenuItem } from '../types';
 import { fetchMenuItems, generateWhatsAppLink } from '../utils/googleSheets';
 import { getProductImage } from '../utils/productImages';
+import { useCart } from '../context/CartContext';
 
 export default function Menu() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>('Tous');
+  const { addToCart, getItemCount } = useCart();
 
   useEffect(() => {
     loadMenu();
@@ -25,8 +27,7 @@ export default function Menu() {
     : menuItems.filter(item => item.categorie === selectedCategory);
 
   const handleOrder = (item: MenuItem) => {
-    const message = `Bonjour! Je voudrais commander:\n${item.nomProduit} (${item.taille}) - ${item.prix} DH`;
-    window.open(generateWhatsAppLink(message), '_blank');
+    addToCart(item);
   };
 
   if (loading) {
@@ -111,10 +112,10 @@ export default function Menu() {
 
                   <button
                     onClick={() => handleOrder(item)}
-                    className="btn-secondary px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base flex items-center gap-2 whitespace-nowrap"
+                    className="btn-secondary px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base flex items-center gap-2 whitespace-nowrap relative"
                   >
-                    <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                    <span>Commander</span>
+                    <ShoppingCart className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                    <span>Ajouter au panier</span>
                   </button>
                 </div>
               </div>
